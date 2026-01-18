@@ -11,7 +11,7 @@ stages:
 
 # ---------- BUILD ----------
 build_app_image:
-  stage: publish
+  stage: build
   image: docker:latest
   services:
     - docker:dind
