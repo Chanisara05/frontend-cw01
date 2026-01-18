@@ -1,33 +1,21 @@
-# ---------- build stage ----------
-FROM node:20-alpine AS build
-
+# Frontend Dockerfile - build with Node, serve dist with nginx (production-style)
+FROM node:22-alpine AS builder
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+# Install dependencies (copy package files first to leverage cache)
+COPY package.json package-lock.json* ./
+RUN npm ci --silent
 
+# Copy source and build
 COPY . .
 RUN npm run build
 
-# ---------- production stage ----------
-FROM nginx:alpine
+# Runner: nginx serves the built static files
+FROM nginx:stable-alpine AS runner
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Remove default nginx config
-RUN rm /etc/nginx/conf.d/default.conf
-
-# Copy our own config
+# Add SPA fallback and basic caching
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy built assets
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Copy entrypoint
-COPY entrypoint.sh /entrypoint.sh
-RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh
-
 EXPOSE 80
-
-ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
-
-
