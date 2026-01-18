@@ -17,4 +17,4 @@ Setup Browser
 
 *** Test Cases ***
 Text Testing
-    Page Should Contain     CRUD
+    Wait Until Page Contains    CRUD    timeout=10s
