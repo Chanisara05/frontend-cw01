@@ -8,6 +8,7 @@ stages:
   - test
   - sonarqube_scan
   - run
+  - deploy
 
 # ---------- BUILD ----------
 build_app_image:
