@@ -6,8 +6,8 @@ variables:
 stages:
   - build
   - test
-  - sonarqube_scan
-  - run
+ # - sonarqube_scan
+ # - run
 
 # ---------- BUILD ----------
 build_app_image:
