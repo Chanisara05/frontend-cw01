@@ -12,12 +12,13 @@ cd frontend-cw
 
 3.
 ```
-docker pull yuzuruorensu/cw-crud:v1f
+docker build --no-cache -t frontend-cw:latest .
 ```
 
 4.
 ```
-docker run -p 8080:80 -e API_BASE=https://<your-cloudflare-worker-url-api>.dev yuzuruorensu/cw-crud:v1f
+docker run --rm -p 8080:80 -e API_BASE=https://<your-cloudflare-worker-url-api>.dev frontend-cw:latest
+example: docker run --rm -p 8080:80 -e API_BASE=https://backend-cw.chontipan.workers.dev frontend-cw:latest
 ```
 
 5.
