@@ -49,7 +49,7 @@ robot_tests:
     paths:
       - ./tests/results
 
-
+# ---------- Code Quality Scan ----------
 # sonarcloud-check:
 #   stage: sonarqube_scan
 #   image:
