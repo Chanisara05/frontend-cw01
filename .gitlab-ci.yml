@@ -50,7 +50,7 @@ robot_tests:
       - ./tests/results
 
 # ---------- Code Quality Scan ----------
- sonarcloud-check:
+  sonarcloud-check:
    stage: sonarqube_scan
    image:
      name: sonarsource/sonar-scanner-cli:latest
