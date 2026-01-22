@@ -50,21 +50,21 @@ robot_tests:
       - ./tests/results
 
 # ---------- Code Quality Scan ----------
-# sonarcloud-check:
-#   stage: sonarqube_scan
-#   image:
-#     name: sonarsource/sonar-scanner-cli:latest
-#     entrypoint: [""]
-#   cache:
-#     key: "${CI_JOB_NAME}"
-#     paths:
-#       - .sonar/cache
-#   script:
-#     - sonar-scanner
-#   only:
-#     - merge_requests
-#     - master
-#     - develop
+ sonarcloud-check:
+   stage: sonarqube_scan
+   image:
+     name: sonarsource/sonar-scanner-cli:latest
+     entrypoint: [""]
+   cache:
+     key: "${CI_JOB_NAME}"
+     paths:
+       - .sonar/cache
+   script:
+     - sonar-scanner
+   only:
+     - merge_requests
+     - master
+     - develop
 
 # ---------- DEPLOY Vercel ----------
 # deploy-vercel:
