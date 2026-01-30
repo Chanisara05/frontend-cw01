@@ -123,7 +123,7 @@ onMounted(() => {
 
 <template>
 	<div class="container">
-		<h1>CRUD Playground 67026371</h1>
+		<h1>CRUD Playground 67026371 & 67022568</h1>
 
 		<section class="card">
 			<h2 @click="showList = !showList" style="cursor:pointer">List items <small>click to toggle</small></h2>
@@ -193,15 +193,135 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.container{max-width:900px;margin:20px auto;font-family:system-ui,Segoe UI,Roboto,Arial}
-.muted{color:#666;font-size:0.9rem}
-.card{border:1px solid #e2e8f0;padding:12px;border-radius:6px;margin-bottom:12px}
-.row{display:flex;gap:8px;align-items:center;margin-top:8px}
-input,select{padding:6px 8px;border:1px solid #cbd5e1;border-radius:4px}
-button{padding:6px 10px;border-radius:4px;border:1px solid #94a3b8;background:#f8fafc;cursor:pointer}
-.items{width:100%;border-collapse:collapse;margin-top:8px}
-.items th,.items td{border:1px solid #e2e8f0;padding:6px;text-align:left}
-.status{margin-top:10px;color:#0f172a}
-h1{margin-bottom:4px}
-h2{margin:0;font-size:1.05rem}
+/* พื้นหลังแบบไล่สีพาสเทลหลายมิติ */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(at 0% 0%, #fff1f2 0%, transparent 50%), 
+                radial-gradient(at 100% 0%, #f5f3ff 0%, transparent 50%), 
+                radial-gradient(at 100% 100%, #fdf2f8 0%, transparent 50%), 
+                radial-gradient(at 0% 100%, #faf5ff 0%, transparent 50%);
+    background-color: #ffffff;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    /* เปลี่ยนมาใช้ฟอนต์ Itim */
+    font-family: 'Itim', cursive;
+    /* เอฟเฟกต์กระจกฝ้า */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(236, 72, 153, 0.1);
+}
+
+.muted {
+    color: #a78bfa;
+    font-size: 0.95rem;
+}
+
+.card {
+    border: 2px solid rgba(243, 232, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 15px -3px rgba(255, 192, 203, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+input, select {
+    font-family: 'Itim', cursive;
+    padding: 10px 15px;
+    border: 2px solid #fbcfe8;
+    border-radius: 12px;
+    outline: none;
+    background: white;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #d8b4fe;
+    box-shadow: 0 0 0 4px rgba(216, 180, 254, 0.2);
+}
+
+button {
+    font-family: 'Itim', cursive; 
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #fda4af 0%, #d8b4fe 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(244, 114, 182, 0.3);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
+
+.items {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #f3e8ff;
+    background: white;
+}
+
+.items th {
+    background-color: #fdf2f8;
+    color: #be185d;
+    padding: 12px;
+    font-size: 1.1rem;
+}
+
+.items td {
+    border-bottom: 1px solid #f3e8ff;
+    padding: 12px;
+    color: #6b21a8;
+}
+
+.status {
+    margin-top: 20px;
+    color: #db2777;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+h1 {
+    color: #9333ea;
+    text-shadow: 2px 2px 0px #fdf2f8;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #db2777;
+}
 </style>
