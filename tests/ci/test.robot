@@ -5,7 +5,7 @@ Suite Teardown    Close All Browsers
 
 *** Variables ***
 ${BASE_URL}       http://localhost:80
-
+${STUDENT_ID}    67022568  
 *** Keywords ***
 Setup Browser
 
